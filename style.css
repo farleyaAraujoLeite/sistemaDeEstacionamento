@@ -1,34 +1,52 @@
 body{
-    background-color: rgb(34, 33, 36);
-}
-
-.container{
-    margin: 0 auto;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    
+    background-color: #222124;
 }
 
 #dados{
     display: flex;
-    background-color: #fff;
-    justify-content: center;
+    justify-content: space-around;
     padding: 20px;
-    flex-direction: column;
     border-radius: 10px;
-    
+}
+
+#logo{
+    border: 5px solid #b9b7b7;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: red;
+}
+
+#logotipo{
+    width: 200px;
+}
+
+#titulo-inputs{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+}
+
+#inputs{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid #b9b7b7;
+    background-color: #d4d1d1;
+    border-radius: 10px;
+    margin-left: 10px;
 }
 
 #veiculos{
     display: flex;
-    width: 100%;
     justify-content: space-between;
     align-items: center;
     background-color: #fff;
     border-radius: 10px;
     margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border: 5px solid #b9b7b7;
     
 }
 
@@ -47,8 +65,8 @@ body{
 }
 
 #send{
-    background-color: blueviolet;
-    width: 80px;
+    background-color: #30b116;
+    width: 100px;
     margin-top: 20px;
     border: none;
     border-radius: 10px;
@@ -58,15 +76,24 @@ body{
     cursor: pointer;
 }
 
+#send:hover{
+    background-color: #288315;
+}
+
 .delete{
-    width: 80px;
-    background-color: red;
+    background-color: #ff0000;
     padding: 10px;
     border: none;
     border-radius: 10px;
     color: #fff;
     font-weight: bold;
     cursor: pointer;
+}
+.delete:hover{
+    background-color: #680505;
+}
+.delete img{
+    width: 20px;
 }
 
 table{
@@ -80,4 +107,61 @@ tr{
     align-items: center;
     margin: 0 auto;
 }
+th{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+}
 
+#valorTotal{
+    background-color: #fff;
+    display: flex;
+    width: 30%;
+    margin-top: 20px;
+    border-radius: 10px;
+    justify-content: center;
+    margin-left: 20px;
+    border: 5px solid #b9b7b7;
+}
+#valorTotal,h1,h3{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+@media (max-width: 600px){
+    #dados{
+        flex-direction: column;
+        padding: 20px;
+    }
+    #inputs input{
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        margin: 0px;
+        padding: 5px;
+        margin-bottom: 10px;
+    }
+    #send{
+        margin-bottom: 10px;
+        width: 80%;
+    }
+    #inputs{
+        margin: 0px;
+        border: none;
+    }
+    #logo{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        width: 90%;
+        border: none;
+    }
+    #veiculos{
+        width: 90%;
+        border: none;
+    }
+    #valorTotal{
+        width: 90%;
+        border: none;
+    }
+}

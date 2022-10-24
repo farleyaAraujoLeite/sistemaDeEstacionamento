@@ -8,26 +8,34 @@
     <title>Estacionamento</title>
 </head>
 <body>
-    <div class="container">
-        <div id="dados">
-            <input id="name" type="text" placeholder="Digite o nome do veículo" autocomplete="off">
-            <input id="licence" type="text" placeholder="Digite a placa do veículo" autocomplete="off">
+    
+    <div id="dados">
+        <div id="logo">
+            <a href="https://www.flaticon.com/free-icon/parking-lot_1643662" target="_blank"><img id="logotipo" src="/img/parking-lot.png" alt="logo"></a>
+        </div>        
+        <div id="inputs">
+            <h2 id="titulo-inputs">Cadastrar Veículos</h2>
+            <input id="name" type="text" placeholder="Modelo do veículo" autocomplete="off">
+            <input id="licence" type="text" placeholder="Placa do veículo" autocomplete="off">
             <button id="send">Registrar</button>
         </div>
-        <div id="veiculos">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Veículo</th>
-                        <th>Placa</th>
-                        <th>Horário</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody id="garage"></tbody>
-            </table>        
-        </div>        
+
+
     </div>
+    <div id="veiculos">
+        <table>
+            <thead>
+                <tr>
+                    <th>Veículo</th>
+                    <th>Placa</th>
+                    <th>Horário</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="garage"></tbody>
+        </table>        
+    </div>  
+    <div id="valorTotal"></div>      
 
 
 </body>

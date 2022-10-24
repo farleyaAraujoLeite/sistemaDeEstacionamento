@@ -23,7 +23,7 @@
                     hour: "numeric", minute: "numeric"
                 })}</td>
             <td>
-                <button class='delete'>Remover</button>
+                <button class='delete'>Finalizar</button>
             </td>
         `;
         document.querySelector('#garage').appendChild(row);
@@ -41,7 +41,25 @@
         localStorage.garage = JSON.stringify(garage);
 
         renderGarage();
-    }
+
+        function payment (){
+            let valorHora = 10;
+            let tempoEstadia = 60;
+            let valorPagar = valorHora / tempoEstadia;
+            const total = document.createElement("div");
+            total.innerHTML = `
+                <h1>Total a Pagar</h1>
+                <h3>R$ - ${valorPagar.toFixed(2)}</h3> 
+            `;
+            document.querySelector("#valorTotal").appendChild(total);
+
+            
+        }
+        payment();
+    };
+
+
+
 
     const getGarage = () => localStorage.garage ? JSON.parse(localStorage.garage) : [];
     renderGarage();
