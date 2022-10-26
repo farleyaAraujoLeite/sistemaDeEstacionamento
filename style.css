@@ -10,6 +10,8 @@ body{
 }
 
 #logo{
+    display: flex;
+    align-items: center;
     border: 5px solid #b9b7b7;
     padding: 20px;
     border-radius: 10px;
@@ -39,7 +41,6 @@ body{
 
 #veiculos{
     display: flex;
-    justify-content: space-between;
     align-items: center;
     background-color: #fff;
     border-radius: 10px;
@@ -53,9 +54,27 @@ body{
 #name{
     padding: 5px;
     border-radius: 5px;
-    width: 50%;
-    
+    width: 50%;  
 }
+#owner{
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 10px;
+    width: 50%;   
+}
+#aptNumber{
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 10px;
+    width: 50%; 
+}
+#aptBlock{
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 10px;
+    width: 50%; 
+}
+
 
 #licence{
     padding: 5px;
@@ -101,30 +120,15 @@ table{
 }
 
 tr{
-    width: 100%;
-    display: inline-flex;
+    display: flex;
     justify-content: space-around;
     align-items: center;
-    margin: 0 auto;
+    
 }
 th{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
-}
-
-#valorTotal{
-    background-color: #fff;
-    display: flex;
-    width: 30%;
-    margin-top: 20px;
-    border-radius: 10px;
-    justify-content: center;
-    margin-left: 20px;
-    border: 5px solid #b9b7b7;
-}
-#valorTotal,h1,h3{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-
+    
 }
 
 @media (max-width: 600px){
@@ -157,11 +161,30 @@ th{
         border: none;
     }
     #veiculos{
-        width: 90%;
+        margin: 0px;
+        width: 100%;
         border: none;
+        display: flex;
+        flex-direction: column;
     }
-    #valorTotal{
-        width: 90%;
-        border: none;
+    table{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 0px;
+    }
+    td{
+        font-size: 12px;
+    }
+    th{
+        font-size: 10px;
+    }
+    tr{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+    .delete{
+        font-size: 10px;
     }
 }

@@ -1,12 +1,5 @@
 (function(){
 
-    function convertPeriod(mil){
-        const min = Math.floor(mil / 60000);
-        const sec = Math.floor((mil % 60000) / 1000);
-
-        return `${min}m e ${sec}s`;
-    }
-
     function renderGarage() {
         const garage = getGarage();
         document.querySelector("#garage").innerHTML = "";
@@ -18,44 +11,25 @@
         row.innerHTML = `
             <td>${car.name}</td>
             <td>${car.licence}</td>
-            <td data-time="${car.time}">${new Date(car.time)
-                .toLocaleString("pt-BR", {
-                    hour: "numeric", minute: "numeric"
-                })}</td>
+            <td>${car.owner}</td>
+            <td>${car.aptNumber}</td>
+            <td>${car.aptBlock}</td>
             <td>
-                <button class='delete'>Finalizar</button>
+                <button class='delete'>X</button>
             </td>
         `;
         document.querySelector('#garage').appendChild(row);
     };
 
     function checkOut(info){
-        let period = new Date() - new Date(info[2].dataset.time);
-        period = convertPeriod(period)
         const licence = info[1].textContent;
-        const msg = `O veículo ${info[0].textContent} de placa ${licence} permanaceu estacionado por ${period}.
-        Deseja encerrar?`;
+        const msg = `Deseja remover esse morador`;
         if(!confirm(msg)) return;
 
         const garage = getGarage().filter(c => c.licence !== licence);
         localStorage.garage = JSON.stringify(garage);
 
         renderGarage();
-
-        function payment (){
-            let valorHora = 10;
-            let tempoEstadia = 60;
-            let valorPagar = valorHora / tempoEstadia;
-            const total = document.createElement("div");
-            total.innerHTML = `
-                <h1>Total a Pagar</h1>
-                <h3>R$ - ${valorPagar.toFixed(2)}</h3> 
-            `;
-            document.querySelector("#valorTotal").appendChild(total);
-
-            
-        }
-        payment();
     };
 
 
@@ -66,13 +40,16 @@
     document.querySelector('#send').addEventListener('click', e => {
         const name = document.querySelector('#name').value;
         const licence = document.querySelector("#licence").value;
+        const owner = document.querySelector("#owner").value;
+        const aptNumber = document.querySelector("#aptNumber").value;
+        const aptBlock = document.querySelector("#aptBlock").value;
 
-        if(!name || !licence){
+        if(!name || !licence || !owner || !aptNumber || !aptBlock){
             alert("Os campos são obrigatórios");
             return;
         }
 
-        const car = { name, licence, time: new Date()}
+        const car = { name, licence, owner, aptNumber, aptBlock}
 
         const garage = getGarage()
         garage.push(car);
@@ -80,6 +57,9 @@
         localStorage.garage = JSON.stringify(garage);
         document.querySelector("#name").value = "";
         document.querySelector("#licence").value = "";
+        document.querySelector("#owner").value = "";
+        document.querySelector("#aptNumber").value = "";
+        document.querySelector("#aptBlock").value = "";
         addCarToGarage(car);
     })
 
